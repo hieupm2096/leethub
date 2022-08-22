@@ -12,4 +12,4 @@ class Solution:
         #         maxEntry = [k, v]
         # return maxEntry[0]
         nums.sort()
-        return nums[(len(nums) - 1) // 2]
+        return nums[len(nums) // 2]
