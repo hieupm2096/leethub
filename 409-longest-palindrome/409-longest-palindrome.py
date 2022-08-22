@@ -1,8 +1,14 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
+        smap = {}
         length = 0
         flag = False
-        for value in collections.Counter(s).values():
+        for c in s:
+            if c in smap:
+                smap[c] += 1
+            else:
+                smap[c] = 1
+        for value in smap.values():
             if value % 2 == 0:
                 length += value
             else:
