@@ -2,15 +2,11 @@ class Solution:
     def isValid(self, s: str) -> bool:
         if len(s) % 2 != 0:
             return False
-        opens = ['(', '[', '{']
-        closes = [')', ']', '}']
+        pmap = {'(':')', '{':'}','[':']'}
         stack = []
         for i in s:
-            if i in opens:
+            if i in pmap:
                 stack.append(i)
-            elif i in closes:
-                if len(stack) == 0:
-                    return False
-                if opens.index(stack.pop()) != closes.index(i):
-                    return False
+            elif len(stack) == 0 or pmap[stack.pop()] != i:
+                return False
         return len(stack) == 0
