@@ -9,7 +9,6 @@ class Solution:
             elif i in closes:
                 if len(stack) == 0:
                     return False
-                temp = stack.pop()
-                if opens.index(temp) != closes.index(i):
+                if opens.index(stack.pop()) != closes.index(i):
                     return False
         return len(stack) == 0
