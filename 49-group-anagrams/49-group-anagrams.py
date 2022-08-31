@@ -1,9 +1,10 @@
-from collections import defaultdict
-
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        maps = defaultdict(list)
+        maps = {}
         for i in strs:
             tmp = ''.join(sorted(i))
-            maps[tmp].append(i)
+            if tmp in maps:
+                maps[tmp].append(i)
+            else:
+                maps[tmp] = [i]
         return maps.values()
