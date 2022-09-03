@@ -8,6 +8,5 @@ class Solution:
             d[i] += 1
         keys = list(d.keys())
         keys.sort(key=lambda x: (-d[x], x))
-        print(keys)
         return keys[0:k]
             
